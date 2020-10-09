@@ -4,14 +4,13 @@ import com.google.gson.Gson;
 
 import processing.core.PApplet;
 
-public class MainServer extends PApplet implements onMessage{
+public class MainServer extends PApplet {
 	private TCPsingleton tcp; 
 	
-
 		int x;
 		int y;
-		Coordenada coordenada;
-		Usuario usuario;
+		String usuario;
+		
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PApplet.main("s8servidor.MainServer");
@@ -34,34 +33,27 @@ public class MainServer extends PApplet implements onMessage{
 	
 	public void draw() {
 		background(255);
-		if (tcp.obj == null) {
-			//System.out.println("nombre"+usuario.getNombre());
-			text(usuario.getNombre(),coordenada.getX()-100,coordenada.getY()-100);
-		}
 		
-		if (coordenada != null) {
-				fill(0,255,20);
-				
-				ellipse(coordenada.getX(),coordenada.getY(),50,50);
-		}else {
+		
+		if (usuario != null) {
+			
 			fill(0,255,20);
-			ellipse(0,0,50,50);
+			text(usuario,x-10,y-70);
+			ellipse(x,y,50,50);
 		}
-		
-		
-		
+	
 	}
 	
 
-	public void onMessage(Usuario obj) {
-		this.usuario = obj;
+	public void onMessage(String obj ) {
+		usuario = obj;
 		
 	}
 
-	@Override
-	public void onMessages(Coordenada coordenada) {
-		// TODO Auto-generated method stub
-		this.coordenada = coordenada;
+
+	public void onMessages(int xs ,int ys) {
+		x = xs;
+		y = ys;
 	}
 
 

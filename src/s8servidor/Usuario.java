@@ -1,14 +1,28 @@
 package s8servidor;
 
+
 public class Usuario {
- 
     private String nombre;
+    private String type = "usser";
+
+
     //CONSTRUCTOR
 
     public Usuario(String nombre) {
-    	super();
         this.nombre = nombre;
 
+    }
+
+
+    //ATRIBUTOS
+
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getNombre() {
