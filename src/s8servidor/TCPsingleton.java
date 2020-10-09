@@ -36,7 +36,7 @@ public class TCPsingleton extends Thread{
 	private MainServer observer;
 	private BufferedReader reader;
 	private ServerSocket server;
-	//private Coordenada coordenada = new Coordenada(50, 50);
+	
 	public Usuario obj;
 	private Generic generic;
 	
@@ -79,7 +79,6 @@ public class TCPsingleton extends Thread{
 					System.out.println("Coordenada"+coordenaRecibida.getX() +","+ coordenaRecibida.getY());
 					observer.onMessages(coordenaRecibida.getX() , coordenaRecibida.getY());
 					
-					
 					break;
 				case "usser":
 					
@@ -88,12 +87,15 @@ public class TCPsingleton extends Thread{
 					
 				observer.onMessage(obj.getNombre());
 					break;
-				}
+				case "colorcito":
+					
+					 Color color = gson.fromJson(lastMessage,Color.class);
+					
+					
+				observer.oncolor(color.getR(),color.getG(),color.getB());
+					break;
 				
-				
-				
-			
-				
+				}		
 				
 			}
 			

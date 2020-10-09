@@ -10,6 +10,9 @@ public class MainServer extends PApplet {
 		int x;
 		int y;
 		String usuario;
+		int r,g,b;
+		
+		
 		
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -24,8 +27,8 @@ public class MainServer extends PApplet {
 		tcp = TCPsingleton.getInstace();
 		tcp.setMainServer(this);
 		//tcp.start();
-		x=200;
-		y=200;
+		x=0;
+		y=0;
 		
 	}
 	
@@ -37,7 +40,7 @@ public class MainServer extends PApplet {
 		
 		if (usuario != null) {
 			
-			fill(0,255,20);
+			fill(r,g,b);
 			text(usuario,x-10,y-70);
 			ellipse(x,y,50,50);
 		}
@@ -54,6 +57,13 @@ public class MainServer extends PApplet {
 	public void onMessages(int xs ,int ys) {
 		x = xs;
 		y = ys;
+	}
+
+	public void oncolor(int r2, int g2, int b2) {
+		r = r2;
+		g = g2 ;
+		b= b2;
+		
 	}
 
 

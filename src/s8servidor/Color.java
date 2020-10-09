@@ -1,7 +1,7 @@
 package s8servidor;
 
 public class Color {
-	
+	private String type = "colorcito";
 private int r,g,b;
 
 
